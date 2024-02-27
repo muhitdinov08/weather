@@ -1,0 +1,9 @@
+{% extends 'weather/base.html' %}
+
+{% block body %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-secondary mt-2">Submit</button>
+    </form>
+{% endblock %}

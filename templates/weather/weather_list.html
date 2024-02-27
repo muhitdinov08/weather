@@ -1,0 +1,8 @@
+{% extends 'weather/base.html' %}
+{% block body %}
+    <a href="{% url 'add_city_weather' %}"><button>Add weather</button></a><br><br>
+     ------------------------------------------------- <br><br>
+    {% for weather in weather_list %}
+        <a href="{% url 'weather_' weather.city_name%}"><button>{{ weather.city_name }}</button></a><br><br>
+    {% endfor %}
+{% endblock %}
