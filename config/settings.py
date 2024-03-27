@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'weather',
     'crispy_forms',
     'crispy_bootstrap4',
+    'requests',
 ]
 
 MIDDLEWARE = [

@@ -1,13 +1,14 @@
 from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
 import requests
 from django.views.generic import ListView
 
-from weather.forms import UserLoginForm, UserRegisterForm, AddWeatherForm, SeeWeatherForm
+from weather.forms import UserLoginForm, UserRegisterForm, AddWeatherForm, SeeWeatherForm, UserUpdateForm
 from weather.models import Weather
 
 
@@ -151,3 +152,17 @@ class AddWeatherView(View):
             return redirect('weather_list')
         else:
             return render(request, 'weather/add_city_weather.html', {'form': form})
+
+
+class ProfileView(View):
+    def get(self, request):
+        queryset = User.objects.get(username=request.user.username)
+        return render(request, 'weather/profile.html', {'user': queryset})
+
+
+class UpdateUserView(View):
+    def get(self, request, **kwargs):
+        user = User.objects.get(pk=kwargs["pk"])
+        form = UserUpdateForm(instance=user)
+        return render(request, 'weather/update_user.html', {'form': form})
+

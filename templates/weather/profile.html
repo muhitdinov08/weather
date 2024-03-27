@@ -1,0 +1,12 @@
+{% extends 'weather/base.html' %}
+
+{% block body  %}
+    <h2>username: {{ user.username }}</h2> <br> <br>
+    
+    <h3>full_name: {{ user.first_name }} {{ user.lest_name }}</h3>
+    
+    <br><br>
+    <h3>email: {{ user.email }}</h3>
+    
+    <a href="{% url 'update_user' user.id %}"><button>Update</button></a>
+{% endblock %}

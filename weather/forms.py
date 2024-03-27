@@ -37,3 +37,9 @@ class SeeWeatherForm(ModelForm):
     class Meta:
         model = Weather
         fields = ['city_name']
+
+
+class UserUpdateForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'first_name', 'last_name', 'password')

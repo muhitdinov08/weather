@@ -44,7 +44,7 @@
 
 
                         <button class=""><a href="{% url 'logout_page' %}">Logout</a></button>
-                        <button class="btn btn-secondary">{{ request.user.username }}</button>
+                        <a href="{% url 'profile_page' %}"><button class="btn btn-secondary">{{ request.user.username }}</button></a>
                     {% else %}
 
                         <button class=""><a href="{% url 'login_page' %}"> Login </a></button>
